@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <com.bookingSystem.widget.MySwipeRefreshLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipe_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+        			            <Button
+			                android:id="@+id/button1"
+			                android:text="Button" />
+
+			        <LinearLayout
+			            android:id="@+id/wraper"
+					    android:layout_width="match_parent"
+					    android:layout_height="match_parent"
+					    android:orientation="vertical">
+
+
+
+			    		<GridView
+					        android:id="@+id/main_gridview"
+					        android:layout_marginTop="20dp"
+					        android:layout_width="match_parent"
+					        android:layout_height="wrap_content"
+					        android:verticalSpacing="20dp"
+					        android:numColumns="4" >
+					    </GridView>
+			
+					    <ListView
+					        android:id="@+id/main_listview"
+					        android:layout_width="match_parent"
+					        android:layout_height="wrap_content"
+					        android:layout_alignParentLeft="true"
+					        android:layout_marginTop="15dp">
+					    </ListView>
+			    
+			    	</LinearLayout>
+
+
+ 
+	</com.bookingSystem.widget.MySwipeRefreshLayout>

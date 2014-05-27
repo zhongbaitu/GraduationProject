@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7" 
+        android:background="@color/light_gray">
+        
+	    <android.support.v4.view.ViewPager
+	        android:id="@+id/viewPager"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"/>
+
+	    <LinearLayout
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentBottom="true"
+	        android:layout_centerHorizontal="true" >
+
+	        <TextView
+	            android:id="@+id/guide_tips1"
+	            android:layout_width="0dp"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1"
+	            android:text="-"
+	            android:textColor="@color/white"
+	            android:textSize="100dp" />
+
+	        <TextView
+	            android:id="@+id/guide_tips2"
+	            android:layout_width="0dp"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1"
+	            android:text="-"
+	            android:textColor="@color/black"
+	            android:textSize="100dp" />
+
+	        <TextView
+	            android:id="@+id/guide_tips3"
+	            android:layout_width="0dp"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1"
+	            android:text="-"
+	            android:textColor="@color/black"
+	            android:textSize="100dp" />
+	    </LinearLayout>
+	    
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+       	android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/dark_gray"
+
+        android:gravity="center" >
+
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/login_button_style"
+            android:layout_marginRight="20dp"
+            android:text="登陆" />
+
+        <Button
+            android:id="@+id/register_button"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:background="#B6B0B0"
+            android:layout_marginLeft="20dp"
+            android:text="注册" />
+
+    </LinearLayout>
+
+</LinearLayout>
