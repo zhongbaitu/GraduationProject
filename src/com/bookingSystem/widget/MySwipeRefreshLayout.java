@@ -13,15 +13,14 @@ public class MySwipeRefreshLayout extends SwipeRefreshLayout {
 		super(context);
 		// TODO Auto-generated constructor stub
 	}
-
-	public MySwipeRefreshLayout(Context context, AttributeSet attrs) {
-		super(context, attrs);
-	}
+    public MySwipeRefreshLayout(Context context, AttributeSet attrs) {   
+        super(context, attrs);   
+    }   
 
 	@Override
 	public boolean canChildScrollUp() {
 		// TODO Auto-generated method stub
-		return Main.listView.getFirstVisiblePosition() != 0;
+		return First.listView.getFirstVisiblePosition()!=0;
 	}
 
 }

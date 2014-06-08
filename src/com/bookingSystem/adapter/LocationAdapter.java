@@ -17,11 +17,11 @@ public class LocationAdapter extends BaseAdapter {
 
 	private Context context;
 	private List<Map<String, String>> list;
-	private TextView title, content;
-
-	public LocationAdapter(Context context, List<Map<String, String>> list) {
+	private TextView title,content;
+	
+	public LocationAdapter(Context context,List<Map<String, String>> list) {
 		super();
-		this.context = context;
+		this.context=context;
 		this.list = list;
 	}
 
@@ -46,20 +46,18 @@ public class LocationAdapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View view = null;
-		LayoutInflater inflater = LayoutInflater.from(context);
-
-		if (list.get(position).get("type").equals("1")) {
-			view = inflater.inflate(R.layout.location__listview_title_style,
-					null);
-			title = (TextView) view.findViewById(R.id.location_title);
+		LayoutInflater inflater=LayoutInflater.from(context);
+		
+		if(list.get(position).get("type").equals("1")){
+			view=inflater.inflate(R.layout.location__listview_title_style, null);
+			title=(TextView) view.findViewById(R.id.location_title);
 			title.setText(list.get(position).get("title"));
-		} else {
-			view = inflater.inflate(R.layout.location_listview_content_style,
-					null);
-			content = (TextView) view.findViewById(R.id.location_content);
-			content.setText(list.get(position).get("place"));
+		}else{
+			view=inflater.inflate(R.layout.location_listview_content_style, null);
+			content=(TextView) view.findViewById(R.id.location_content);
+			content.setText(list.get(position).get("title"));
 		}
-
+		
 		return view;
 	}
 

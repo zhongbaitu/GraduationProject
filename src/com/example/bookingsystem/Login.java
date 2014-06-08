@@ -55,7 +55,7 @@ public class Login {
 		build.setTitle("µ«¬º");
 		username = (EditText) view.findViewById(R.id.login_dialog_username);
 		password = (EditText) view.findViewById(R.id.login_dialog_password);
-		sp = context.getSharedPreferences("remember", Context.MODE_APPEND);
+		sp=context.getSharedPreferences("remember", Context.MODE_APPEND);
 
 	}
 
@@ -96,7 +96,7 @@ public class Login {
 					@Override
 					public void onResponse(JSONObject jsonObject) {
 						responseDo(jsonObject);
-
+						
 					}
 				}, new Response.ErrorListener() {
 					@Override
@@ -107,19 +107,20 @@ public class Login {
 		rQueue.add(jsonObjectRequest);
 		rQueue.start();
 	}
-
-	private void responseDo(JSONObject jsonObject) {
+	
+	private void responseDo(JSONObject jsonObject){
 		try {
 			if (jsonObject.getString("result").equals("OKla")) {
-
-				Editor editor = sp.edit();
+				
+				Editor editor=sp.edit();
 				editor.putString("username", username.getText().toString());
 				editor.putString("password", password.getText().toString());
 				editor.commit();
-
-				context.startActivity(new Intent(context, MainPager.class));
+				
+				context.startActivity(new Intent(context,
+						MainPager.class));
 				Guide.guide.finish();
-			} else {
+			}else{
 				Toast.makeText(context, "’ ∫≈ªÚ√‹¬Î¥ÌŒÛ", Toast.LENGTH_SHORT).show();
 
 			}

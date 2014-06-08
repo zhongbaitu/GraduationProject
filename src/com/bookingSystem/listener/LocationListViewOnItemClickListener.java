@@ -12,14 +12,12 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-
 /**
  * 定位或选择地区的 listview 的 item 监听
- * 
  * @author 钟买能
  * @version 1.0
  * @since 2014-5-24
- * 
+ *
  */
 public class LocationListViewOnItemClickListener implements OnItemClickListener {
 
@@ -32,14 +30,13 @@ public class LocationListViewOnItemClickListener implements OnItemClickListener 
 
 	@SuppressLint("NewApi")
 	@Override
-	public void onItemClick(AdapterView<?> arg0, View view, int posision,
-			long itemId) {
-		if (list.get(posision).get("type").toString().equals("2")) {
-			String city = list.get(posision).get("place").toString();
-			MainPager.actionBar.setTitle(city);
-			Location.location.finish();
+	public void onItemClick(AdapterView<?> arg0, View view, int posision, long itemId) {
+		if(list.get(posision).get("type").toString().equals("2")){
+			
 		}
-
+		String city=list.get(posision).get("place").toString();
+		MainPager.actionBar.setTitle(city);
+		Location.location.finish();
 	}
 
 }

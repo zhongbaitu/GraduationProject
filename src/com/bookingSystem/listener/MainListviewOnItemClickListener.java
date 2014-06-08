@@ -20,23 +20,22 @@ public class MainListviewOnItemClickListener implements OnItemClickListener {
 
 	private Context context;
 	private List<Map<String, String>> item;
-
+	
 	public MainListviewOnItemClickListener(Context context,
 			List<Map<String, String>> item) {
 		super();
-		this.context = context;
+		this.context=context;
 		this.item = item;
 	}
 
 	@Override
-	public void onItemClick(AdapterView<?> adapterView, View view,
-			int position, long itemId) {
+	public void onItemClick(AdapterView<?> adapterView, View view, int position, long itemId) {
 
 		Intent intent = new Intent(context, RestaurantItem.class);
 		intent.putExtra("name", item.get(position).get("itemName").toString());
-		// intent.putExtra("image", name);
-		intent.putExtra("price", item.get(position).get("price").toString());
-		context.startActivity(intent);
+//		intent.putExtra("image", name);
+		intent.putExtra("price", name);
+		context.startActivity(intent); 
 		((Activity) context).overridePendingTransition(R.anim.right_push_in,
 				R.anim.blank);
 	}

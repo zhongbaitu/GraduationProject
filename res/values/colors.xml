@@ -7,7 +7,7 @@
 	<color name="white">#FFFFFF</color>
 	<color name="dark_gray">#0B0B0B</color>
 	<color name="light_gray">#686868</color>
-	<color name="nomal_gray">#B6B0B0</color>
+	<color name="nomal_gray">##B6B0B0</color>
 	<color name="press_gray">#7b7777</color>
     
 </resources>

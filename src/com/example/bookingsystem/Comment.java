@@ -21,8 +21,8 @@ public class Comment {
 	private ListView commentListView;
 	private List<CommentEntity> commentList;
 	private CommentAdapter commentAdapter;
-	private CommentEntity commentEntity = null;
-
+	private CommentEntity commentEntity=null;
+	
 	public Comment(Context context, View comment) {
 		super();
 		this.context = context;
@@ -30,50 +30,48 @@ public class Comment {
 		init();
 		bind();
 	}
-
-	private void init() {
-		sendButton = (Button) comment.findViewById(R.id.comment_send_button);
-		commentEditText = (EditText) comment
-				.findViewById(R.id.comment_edittext);
-		commentListView = (ListView) comment
-				.findViewById(R.id.comment_listview);
-
-		commentEntity = new CommentEntity();
-
-		commentList = new ArrayList<CommentEntity>();
-
+	
+	private void init(){
+		sendButton=(Button) comment.findViewById(R.id.comment_send_button);
+		commentEditText=(EditText) comment.findViewById(R.id.comment_edittext);
+		commentListView=(ListView) comment.findViewById(R.id.comment_listview);
+		
+		commentEntity=new CommentEntity();
+		
+		commentList=new ArrayList<CommentEntity>();
+		
 		commentEntity.setIsMyMessage(false);
 		commentEntity.setComment("º””Õº””Õ~~£°£°£°");
 		commentEntity.setCommentTime("2014-5-21");
-
+		
 		commentList.add(commentEntity);
-
-		commentAdapter = new CommentAdapter(context, commentList);
-
+		
+		commentAdapter=new CommentAdapter(context,commentList);
+		
 		commentListView.setAdapter(commentAdapter);
-
+		
 	}
-
-	private void bind() {
+	
+	private void bind(){
 		sendButton.setOnClickListener(new OnClickListener() {
-
+			
 			@Override
 			public void onClick(View v) {
 				send();
-
+				
 			}
 		});
 	}
-
-	private void send() {
-		commentEntity = new CommentEntity();
-		commentEntity.setCommentTime("2012-09-20 15:16:34");
-		commentEntity.setComment(commentEditText.getText().toString());
-		commentEntity.setIsMyMessage(false);
-		commentList.add(commentEntity);
-		commentAdapter.notifyDataSetChanged();
-		commentListView.setSelection(commentList.size() - 1);
-		commentEditText.setText("");
-	}
-
+	
+	 private void send(){  
+	        commentEntity = new CommentEntity();  
+	        commentEntity.setCommentTime("2012-09-20 15:16:34");  
+	        commentEntity.setComment(commentEditText.getText().toString());  
+	        commentEntity.setIsMyMessage(false);  
+	        commentList.add(commentEntity);  
+	        commentAdapter.notifyDataSetChanged();  
+	        commentListView.setSelection(commentList.size() - 1);  
+	        commentEditText.setText("");  
+	    }  
+	
 }

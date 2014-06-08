@@ -5,25 +5,31 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONException;
 
 import android.content.Context;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import com.android.volley.NetworkResponse;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
 import com.android.volley.Response.ErrorListener;
 import com.android.volley.Response.Listener;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.bookingSystem.adapter.MainListViewAdapter;
 import com.bookingSystem.listener.MainListviewOnItemClickListener;
+import com.bookingSystem.listener.MainListviewOnScrollListener;
 import com.bookingSystem.widget.JsonArrayUTF8Request;
 
 /**
@@ -62,12 +68,12 @@ public class Main implements SwipeRefreshLayout.OnRefreshListener {
 						"itemImage", "itemName" }, new int[] {
 						R.id.class_picture, R.id.class_text });
 		gridView.setAdapter(gridViewSimpleAdapter);
-		item = new ArrayList<Map<String, String>>();
-		mainListViewAdapter = new MainListViewAdapter(context, item);
+		item = new ArrayList<Map<String,String>>();
+		mainListViewAdapter=new MainListViewAdapter(context, item);
 		listView = (ListView) main.findViewById(R.id.main_listview);
-		listView.setAdapter(mainListViewAdapter);
-		listView.setOnItemClickListener(new MainListviewOnItemClickListener(
-				context, item));
+		listView.setAdapter(mainListViewAdapter); 
+		listView.setOnScrollListener(new MainListviewOnScrollListener());
+		listView.setOnItemClickListener(new MainListviewOnItemClickListener(context, item));
 
 		swipeLayout = (SwipeRefreshLayout) main
 				.findViewById(R.id.swipe_container);
@@ -80,7 +86,7 @@ public class Main implements SwipeRefreshLayout.OnRefreshListener {
 
 	}
 
-	// GridView 的数据
+	//GridView 的数据
 	private ArrayList<HashMap<String, Object>> getGridViewData() {
 		gridItem = new ArrayList<HashMap<String, Object>>();
 		for (int i = 0; i < 5; i++) {
@@ -96,15 +102,13 @@ public class Main implements SwipeRefreshLayout.OnRefreshListener {
 
 		return gridItem;
 	}
-
-	// Put 数据进 listview 的 list
+	
+	//Put 数据进 listview 的 list
 	private List<Map<String, String>> putListViewData(String image,
-			String name, String openTime, String closeTime, String food,
-			String price) {
+			String name, String openTime, String closeTime, String food,String price) {
 
 		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("itemImage",
-				"http://pic18.nipic.com/20111229/6755670_152852649000_2.jpg");
+		map.put("itemImage", "http://pic18.nipic.com/20111229/6755670_152852649000_2.jpg");
 		map.put("itemName", name);
 		map.put("openTime", openTime);
 		map.put("closeTime", closeTime);
@@ -114,8 +118,7 @@ public class Main implements SwipeRefreshLayout.OnRefreshListener {
 
 		return item;
 	}
-
-	// 向服务器请求数据
+	//向服务器请求数据
 	private void takeInfo() {
 		JsonArrayUTF8Request jsonArrayRequest = new JsonArrayUTF8Request(
 				Common.RESTAURAN_INFO, new Listener<JSONArray>() {
@@ -141,21 +144,21 @@ public class Main implements SwipeRefreshLayout.OnRefreshListener {
 		queue.add(jsonArrayRequest);
 		queue.start();
 	}
-
-	// 服务器返回的结果处理
+	
+	//服务器返回的结果处理
 	private void resourceDo(JSONArray jsonArray) throws JSONException {
 		for (int i = 0; i < jsonArray.length(); i++) {
 			putListViewData("",
-					jsonArray.getJSONObject(i).getString("EP_name"), jsonArray
-							.getJSONObject(i).getString("EP_sdate"), jsonArray
-							.getJSONObject(i).getString("EP_edate"), jsonArray
-							.getJSONObject(i).getString("EP_food"), jsonArray
-							.getJSONObject(i).getString("consumption"));
+					jsonArray.getJSONObject(i).getString("EP_name"), 
+					jsonArray.getJSONObject(i).getString("EP_sdate"),
+					jsonArray.getJSONObject(i).getString("EP_edate"), 
+					jsonArray.getJSONObject(i).getString("EP_food"),
+					jsonArray.getJSONObject(i).getString("consumption"));
 		}
 
 	};
 
-	// 下来刷新的处理
+	//下来刷新的处理
 	@Override
 	public void onRefresh() {
 		// TODO Auto-generated method stub

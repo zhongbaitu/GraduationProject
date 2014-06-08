@@ -10,9 +10,9 @@ public class MyLinearLayout extends LinearLayout {
 		super(context);
 		// TODO Auto-generated constructor stub
 	}
-
-	public MyLinearLayout(Context context, AttributeSet attrs) {
-		super(context, attrs);
+    public MyLinearLayout(Context context, AttributeSet attrs) {
+        super(context, attrs);
 	}
+
 
 }

@@ -1,11 +1,12 @@
-package com.bookingSystem.net;
+package com.bookingSystem.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.View.MeasureSpec;
+import android.widget.AbsListView;
+import android.widget.AbsListView.OnScrollListener;
 import android.widget.ListView;
 
-public class MyListView extends ListView {
+public class MyListView extends ListView{
     public MyListView(Context context) {
             super(context);
     }
@@ -21,4 +22,15 @@ public class MyListView extends ListView {
                             MeasureSpec.AT_MOST);
             super.onMeasure(widthMeasureSpec, expandSpec);
     }
+	@Override
+	public void onScroll(AbsListView view, int firstVisibleItem,
+			int visibleItemCount, int totalItemCount) {
+		System.out.println("onScroll");
+		
+	}
+	@Override
+	public void onScrollStateChanged(AbsListView view, int scrollState) {
+		System.out.println("onScrollStateChanged");
+		
+	}
 }
