@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BookingSystem</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="food0">日本菜</string>
+    <string name="food1">中国菜</string>
+    <string name="food2">快餐</string>
+    <string name="food3">闲饮</string>
+    <string name="food4">甜品铺</string>
+    <string name="food5">咖啡馆</string>
+    <string name="food6">法国菜</string>
+    <string name="food7">韩国菜</string>
+
+</resources>

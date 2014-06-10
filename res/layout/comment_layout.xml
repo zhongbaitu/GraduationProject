@@ -7,16 +7,18 @@
     <ListView
         android:id="@+id/comment_listview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:listSelector="#ffffff"
         android:dividerHeight="10dp"
         android:cacheColorHint="#000000"
+        android:layout_marginBottom="50dp"
         android:divider="@null" >
     </ListView>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" 
+        android:background="@drawable/comment_edittext_bg"
         android:layout_alignParentBottom="true">
 
         <EditText

@@ -6,11 +6,21 @@
     android:orientation="vertical" >
 
     <ListView
-        android:id="@+id/listView1"
+        android:id="@+id/location_listview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true" >
     </ListView>
+
+    <com.bookingSystem.widget.AlphabetListView
+        android:id="@+id/alphabet_listView"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="#40000000">
+        
+    </com.bookingSystem.widget.AlphabetListView>
 
 </RelativeLayout>

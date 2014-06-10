@@ -5,7 +5,11 @@ import android.util.AttributeSet;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.ListView;
-
+/**
+ * 解决 scrollview 不兼容listview问题
+ * @author Administrator
+ *
+ */
 public class MyListView extends ListView{
     public MyListView(Context context) {
             super(context);
@@ -22,15 +26,5 @@ public class MyListView extends ListView{
                             MeasureSpec.AT_MOST);
             super.onMeasure(widthMeasureSpec, expandSpec);
     }
-	@Override
-	public void onScroll(AbsListView view, int firstVisibleItem,
-			int visibleItemCount, int totalItemCount) {
-		System.out.println("onScroll");
-		
-	}
-	@Override
-	public void onScrollStateChanged(AbsListView view, int scrollState) {
-		System.out.println("onScrollStateChanged");
-		
-	}
+
 }

@@ -20,7 +20,6 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 
 public class GuideOnPageChangeListener implements OnPageChangeListener {
 
-
 	@Override
 	public void onPageScrollStateChanged(int arg0) {
 		// TODO Auto-generated method stub
@@ -36,21 +35,21 @@ public class GuideOnPageChangeListener implements OnPageChangeListener {
 	@Override
 	public void onPageSelected(int num) {
 		switch (num) {
-			case 0:
-				Guide.tips1.setTextColor(Color.WHITE);
-				Guide.tips2.setTextColor(Color.BLACK);
-				Guide.tips3.setTextColor(Color.BLACK); 
-				break;
-			case 1:
-				Guide.tips1.setTextColor(Color.BLACK);
-				Guide.tips2.setTextColor(Color.WHITE);
-				Guide.tips3.setTextColor(Color.BLACK);
-				break;
-			case 2:
-				Guide.tips1.setTextColor(Color.BLACK);
-				Guide.tips2.setTextColor(Color.BLACK);
-				Guide.tips3.setTextColor(Color.WHITE);
-				break;
+		case 0:
+			Guide.tips1.setTextColor(Color.WHITE);
+			Guide.tips2.setTextColor(Color.BLACK);
+			Guide.tips3.setTextColor(Color.BLACK);
+			break;
+		case 1:
+			Guide.tips1.setTextColor(Color.BLACK);
+			Guide.tips2.setTextColor(Color.WHITE);
+			Guide.tips3.setTextColor(Color.BLACK);
+			break;
+		case 2:
+			Guide.tips1.setTextColor(Color.BLACK);
+			Guide.tips2.setTextColor(Color.BLACK);
+			Guide.tips3.setTextColor(Color.WHITE);
+			break;
 		}
 
 	}

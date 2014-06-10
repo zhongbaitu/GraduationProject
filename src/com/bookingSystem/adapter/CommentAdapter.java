@@ -3,6 +3,7 @@ package com.bookingSystem.adapter;
 import java.util.List;
 
 import com.bookingSystem.Entity.CommentEntity;
+import com.bookingSystem.widget.RoundImageView;
 import com.example.bookingsystem.R;
 
 import android.content.Context;
@@ -14,7 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class CommentAdapter extends BaseAdapter {
-	
+
 	private Context context;
 	private List<CommentEntity> commentList;
 	private LayoutInflater inflater;
@@ -23,7 +24,7 @@ public class CommentAdapter extends BaseAdapter {
 		super();
 		this.context = context;
 		this.commentList = commentList;
-		inflater=LayoutInflater.from(context);
+		inflater = LayoutInflater.from(context);
 	}
 
 	@Override
@@ -35,8 +36,8 @@ public class CommentAdapter extends BaseAdapter {
 	@Override
 	public Object getItem(int position) {
 		// TODO Auto-generated method stub
-		return commentList.get(position);
-	}
+		return commentList.get(position); 
+	} 
 
 	@Override
 	public long getItemId(int position) {
@@ -46,25 +47,28 @@ public class CommentAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		CommentHolder holder=null;
-		if(convertView==null){
-			holder=new CommentHolder();
-			convertView=inflater.inflate(R.layout.comment_from_style, null);
-			holder.userImgae=(ImageView) convertView.findViewById(R.id.comment_from_image);
-			holder.commentText=(TextView) convertView.findViewById(R.id.comment_from_text);
-			holder.commentTime=(TextView) convertView.findViewById(R.id.comment_from_time);
-			convertView.setTag(holder);
-		}else{
-			holder=(CommentHolder) convertView.getTag();
+		CommentHolder holder = null;
+		if (convertView == null) {
+			holder = new CommentHolder();
+			convertView = inflater.inflate(R.layout.comment_from_style, null);
+			holder.userImgae = (RoundImageView) convertView
+					.findViewById(R.id.comment_from_image);
+			holder.commentText = (TextView) convertView
+					.findViewById(R.id.comment_from_text);
+			holder.commentTime = (TextView) convertView
+					.findViewById(R.id.comment_from_time);
+			convertView.setTag(holder); 
+		} else {
+			holder = (CommentHolder) convertView.getTag();
 		}
-		holder.userImgae.setImageResource(commentList.get(position).getUserImage());
+		holder.userImgae.setImageBitmap(commentList.get(position).getUserImage());
 		holder.commentText.setText(commentList.get(position).getComment());
 		holder.commentTime.setText(commentList.get(position).getCommentTime());
-		return null;
+		return convertView;
 	}
-	
-	private class CommentHolder{
-		private ImageView userImgae;
+
+	private class CommentHolder {
+		private RoundImageView userImgae;
 		private TextView commentText;
 		private TextView commentTime;
 	}

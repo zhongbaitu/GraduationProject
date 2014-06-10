@@ -37,6 +37,7 @@
 		    </intent-filter>
         </activity>
         <activity android:name="Location"></activity>
+        <service android:name="com.bookingSystem.service.CallingService"></service>
     </application>
 
 </manifest>

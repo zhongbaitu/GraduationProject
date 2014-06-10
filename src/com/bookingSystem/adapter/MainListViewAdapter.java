@@ -19,13 +19,13 @@ import com.example.bookingsystem.R;
 
 public class MainListViewAdapter extends BaseAdapter {
 
-	private List<Map<String, String>> list;
+	private List<Map<String, Object>> list;
 	private LayoutInflater inflater;
 	private Context context;
-	
-	public MainListViewAdapter(Context context,List<Map<String, String>> list) {
+
+	public MainListViewAdapter(Context context, List<Map<String, Object>> list) {
 		super();
-		this.context=context;
+		this.context = context;
 		this.list = list;
 	}
 
@@ -50,32 +50,39 @@ public class MainListViewAdapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		Holder holder;
-		if(convertView==null){
-			holder=new Holder();
-			inflater=LayoutInflater.from(context);
-			convertView=inflater.inflate(R.layout.main_listview_style, null);
-			holder.name=(TextView) convertView.findViewById(R.id.restaurant_name);
-			holder.price=(TextView) convertView.findViewById(R.id.price);
-			holder.image=(NetworkImageView) convertView.findViewById(R.id.restaurant_image);
-			holder.image.setDefaultImageResId(R.drawable.ic_launcher);  
-			holder.image.setErrorImageResId(R.drawable.food2);  
-			holder.queue=Volley.newRequestQueue(context);
-			holder.imageLoader=new ImageLoader(holder.queue, new BitmapCache());
+		if (convertView == null) {
+			holder = new Holder();
+			inflater = LayoutInflater.from(context);
+			convertView = inflater.inflate(R.layout.main_listview_style, null);
+			holder.name = (TextView) convertView
+					.findViewById(R.id.restaurant_name);
+			holder.price = (TextView) convertView.findViewById(R.id.price);
+			holder.num=(TextView) convertView.findViewById(R.id.line_number);
+			holder.image = (NetworkImageView) convertView
+					.findViewById(R.id.restaurant_image);
+			holder.image.setDefaultImageResId(R.drawable.ic_launcher);
+			holder.image.setErrorImageResId(R.drawable.food2);
+			holder.queue = Volley.newRequestQueue(context);
+			holder.imageLoader = new ImageLoader(holder.queue,
+					new BitmapCache());
 			convertView.setTag(holder);
-		}else{
-			holder=(Holder) convertView.getTag();
+		} else {
+			holder = (Holder) convertView.getTag();
 		}
-		holder.name.setText(list.get(position).get("itemName"));
-		holder.price.setText("人均：￥"+list.get(position).get("price"));
-		holder.image.setImageUrl("http://pic23.nipic.com/20120913/7044160_135938632163_2.jpg", holder.imageLoader);  
-		
+		holder.name.setText((CharSequence) list.get(position).get("itemName"));
+		holder.price.setText("人均：￥" + list.get(position).get("price"));
+		holder.num.setText("排位:"+list.get(position).get("num"));
+		holder.image.setImageUrl(
+				list.get(position).get("itemImage").toString(),
+				holder.imageLoader);
+
 		return convertView;
 	}
-	
-	private class Holder{
-		private TextView name,price;
+
+	private class Holder {
+		private TextView name, price,num;
 		private NetworkImageView image;
-		private ImageLoader imageLoader; 
+		private ImageLoader imageLoader;
 		private RequestQueue queue;
 	}
 

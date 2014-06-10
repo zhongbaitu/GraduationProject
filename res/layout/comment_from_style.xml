@@ -19,10 +19,11 @@
         android:layout_height="wrap_content"
         android:gravity="left" >
 
-        <ImageView
+        <com.bookingSystem.widget.RoundImageView
             android:id="@+id/comment_from_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="5dp"
             android:src="@drawable/ic_launcher" />
 
         <TextView

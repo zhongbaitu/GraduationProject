@@ -36,26 +36,26 @@ public class Guide extends Activity {
 	private final int ACTIVITY_NUMBER = 0;
 
 	private ViewPager viewPager;
-	
+
 	private List<View> list; // 用于放置介绍的界面
 
 	public static TextView tips1, tips2, tips3;
 
 	private Button loginButton, registerButton;
 	/**
-	 *  单一实例
+	 * 单一实例
 	 */
 	public static Guide guide;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);//去掉标题栏
+		requestWindowFeature(Window.FEATURE_NO_TITLE);// 去掉标题栏
 		setContentView(R.layout.guide);
+		guide=this;
 		init();
 		bind();
 	}
-	
 
 	private void init() {
 		list = new ArrayList<View>();
@@ -88,8 +88,7 @@ public class Guide extends Activity {
 				break;
 			case R.id.register_button:
 				startActivity(new Intent(Guide.this, Register.class));
-				overridePendingTransition(R.anim.right_push_in,
-						R.anim.blank);
+				overridePendingTransition(R.anim.right_push_in, R.anim.blank);
 				break;
 			}
 

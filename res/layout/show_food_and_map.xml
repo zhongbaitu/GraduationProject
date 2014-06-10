@@ -4,17 +4,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
-        <ListView
+    <com.bookingSystem.widget.MyListView
         android:id="@+id/food_listview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-    </ListView>
+    </com.bookingSystem.widget.MyListView>
 
     <ImageView
         android:id="@+id/map_image"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/ic_launcher" />
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scaleType="centerCrop" />
     
 
 </LinearLayout>

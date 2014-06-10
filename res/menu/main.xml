@@ -5,11 +5,17 @@
         android:orderInCategory="100"
         android:showAsAction="never"
         android:title="@string/action_settings"/>
+    <item 
+        android:id="@+id/collection"
+        android:title="我的收藏"/>
+    
+     <item 
+        android:id="@+id/logout"
+        android:title="注销"/>
     
         <!-- Search, should appear as action button -->
     <item android:id="@+id/action_search"
           android:icon="@drawable/ic_action_search"
-          android:title="@string/hello_world"
           android:showAsAction="collapseActionView|ifRoom" 
           android:actionViewClass="android.widget.SearchView"/>
 
